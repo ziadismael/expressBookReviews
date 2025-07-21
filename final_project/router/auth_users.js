@@ -7,6 +7,8 @@ let users = [];
 
 const isValid = (username)=>{ //returns boolean
 //write code to check is the username is valid
+  const usernameRegex = /^[a-zA-Z0-9_]{3,}$/;
+  return usernameRegex.test(username);
 }
 
 const authenticatedUser = (username,password)=>{ //returns boolean
@@ -50,7 +52,7 @@ regd_users.post("/login", (req,res) => {
     else{
       return res.status(208).json({ message: "Invalid Login. Check username and password" });
     }
-    
+
 });
 
 // Add a book review
