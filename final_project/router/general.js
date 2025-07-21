@@ -39,7 +39,7 @@ public_users.post("/register", (req,res) => {
 // Get the book list available in the shop
 public_users.get('/',function (req, res) {
   //Write your code here
-  res.send(JSON.stringify(booksdb, null, 4));
+  res.send(JSON.stringify(books, null, 4));
 });
 
 // Get book details based on ISBN
@@ -87,7 +87,7 @@ public_users.get('/title/:title', async function (req, res) {
     const booksByTitle = [];
 
     for(const key in books){
-      if(books[key].title.toLowerCase === title){
+      if(books[key].title.toLowerCase() === title){
         booksByTitle.push({isbn : key, ...books[key] });
       }
     }
